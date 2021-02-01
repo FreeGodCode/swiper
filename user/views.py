@@ -3,6 +3,7 @@ from lib.http import render_json
 from common import code
 from lib.sms import check_verify_code
 
+
 # Create your views here.
 def get_verify_code(request):
     """
@@ -14,6 +15,11 @@ def get_verify_code(request):
     # 产生验证码
     # 对接第三方短信平台发送短信验证码
     send_verify_code(phone_num)
+    # 异步调用方式
+    send_verify_code.delay(phone_num)
+    """
+    send_verify_code = celery_app.task(send_verify_code).delay
+    """
     # return render_json(data, 200)
     # return render_json(None, code.OK)
     return render_json(None)

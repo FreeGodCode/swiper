@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/code.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swiper/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swiper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/swiper/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +83,10 @@
       <workItem from="1612169331530" duration="1766000" />
       <workItem from="1612175441481" duration="1395000" />
       <workItem from="1612177251169" duration="1794000" />
+      <workItem from="1612179060208" duration="1584000" />
+      <workItem from="1612191831463" duration="607000" />
+      <workItem from="1612193697094" duration="1248000" />
+      <workItem from="1612195508153" duration="1796000" />
     </task>
     <servers />
   </component>
