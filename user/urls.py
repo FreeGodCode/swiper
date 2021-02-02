@@ -5,6 +5,7 @@
 # @Create time: 2/1/21 4:12 PM
 # @Description:
 from user import views
+from django.conf.urls import url
 
 # urlpatterns = [
 #     # url(r'^verify_code$', views.get_verify_code),
