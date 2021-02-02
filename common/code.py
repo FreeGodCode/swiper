@@ -13,3 +13,6 @@ VCODE_ERROR = 1000
 
 # 用户登录异常
 LOGIN_REQUIRE = 1001
+
+# 用户不存在
+USER_NOT_EXIST = 1002

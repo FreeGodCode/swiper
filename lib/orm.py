@@ -12,7 +12,7 @@ class ModelMixin():
         """将一个model转换为一个dict"""
         attr_dict = {}
         for field in self._meta.fields:  # 遍历所有字段
-            name = field.attrname  # 取出字段名称
+            name = field.name  # 取出字段名称
             if name not in ignore_fields:  # 检查是否是需要忽略的字段
                 attr_dict[name] = getattr(self, name)  # 获取字段对应的值
         return attr_dict

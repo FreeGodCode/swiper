@@ -20,6 +20,7 @@ def gen_verify_code(length=6):
     min_value = 10 ** (length - 1)
     max_value = 10 ** (length)
     verify_code = random.randrange(min_value, max_value)
+    # print(verify_code)
     return verify_code
 
 

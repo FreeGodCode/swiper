@@ -2,6 +2,7 @@ from django.shortcuts import render
 from lib.http import render_json
 from common import code
 from lib.sms import check_verify_code
+from user.models import User
 
 
 # Create your views here.
