@@ -21,7 +21,7 @@ class AuthMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         """
-        所有请求处理之前都要进行中间件的处理
+        所有请求处理之前都要进行此中间件的处理
         """
         # 检查当前path是否在白名单内
         if request.path in self.white_list:
@@ -35,7 +35,7 @@ class AuthMiddleware(MiddlewareMixin):
             return render_json(None, code.LOGIN_REQUIRE)
         else:
             try:
-                user = User.objects.get(uid)
+                user = User.objects.get(id=uid)
             # 用户不存在
             except User.DoesNotExist:
                 return render_json(None, code.USER_NOT_EXIST)

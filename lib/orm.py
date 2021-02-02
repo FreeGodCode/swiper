@@ -6,7 +6,7 @@
 # @Description:
 
 class ModelMixin():
-    """"""
+    """类似于虚拟模型类的处理方式"""
 
     def to_dict(self, ignore_fields=()):
         """将一个model转换为一个dict"""

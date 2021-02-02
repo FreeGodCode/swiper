@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/code.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/middleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/orm.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/orm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/sms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swiper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/swiper/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +92,7 @@
       <workItem from="1612199130890" duration="1280000" />
       <workItem from="1612235628745" duration="1779000" />
       <workItem from="1612237422805" duration="2466000" />
+      <workItem from="1612239930560" duration="17029000" />
     </task>
     <servers />
   </component>
