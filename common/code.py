@@ -16,3 +16,6 @@ LOGIN_REQUIRE = 1001
 
 # 用户不存在
 USER_NOT_EXIST = 1002
+
+# 个人信息数据验证不合法异常
+PROFILE_ERROR  = 1003
