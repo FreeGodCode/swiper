@@ -54,6 +54,10 @@ def show_profile(request):
     """
     展示个人信息
     """
+    # 获取用户
+    uid = request.session['uid']
+    user = User.objects.get(uid)
+    # 用户验证
 
     return render_json()
 
