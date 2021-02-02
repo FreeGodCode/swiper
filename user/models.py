@@ -1,9 +1,10 @@
 import datetime
 from django.db import models
+from lib.orm import ModelMixin
 
 
 # Create your models here.
-class User(models.Model):
+class User(models.Model, ModelMixin):
     """用户模型类"""
     SEX = (
         ('0', '男性'),
@@ -29,18 +30,18 @@ class User(models.Model):
         birth_time = datetime.date(self.birth_year, self.birth_month, self.birth_day)
         return (today - birth_time).days // 365
 
-    def to_dict(self):
-        return {
-            'nickname': self.nickname,
-            'phone_num': self.phone_num,
-            'age': self.age,
-            'sex': self.sex,
-            'avatar': self.avatar,
-            'location': self.location,
-        }
+    # def to_dict(self):
+    #     return {
+    #         'nickname': self.nickname,
+    #         'phone_num': self.phone_num,
+    #         'age': self.age,
+    #         'sex': self.sex,
+    #         'avatar': self.avatar,
+    #         'location': self.location,
+    #     }
 
 
-class Profile(models.Model):
+class Profile(models.Model, ModelMixin):
     """个人配置数据"""
     SEX = (
         ('0', '男'),

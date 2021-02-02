@@ -54,6 +54,7 @@ def show_profile(request):
     """
     展示个人信息
     """
+
     return render_json()
 
 
