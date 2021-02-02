@@ -69,7 +69,19 @@ def modify_profile(request):
     """
     编辑个人信息
     """
-    return render_json()
+    from user.forms import ProfileForm
+    # 表单数据获取
+    form = ProfileForm(request.POST)
+    # 表单数据验证
+    if form.is_valid():
+        # 创建对象的时候先封装出来, 不提交, 等额外构建完之后再提交
+        profile = form.save(commit=False)
+        profile.id = request.user.id
+        profile.save()
+        return render_json(profile.to_dict())
+    else:
+        return render_json(form.errors, code.PROFILE_ERROR)
+
 
 
 def upload_avatar(request):
