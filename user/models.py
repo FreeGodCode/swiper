@@ -28,7 +28,27 @@ class User(models.Model, ModelMixin):
         """
         today = datetime.date.today()
         birth_time = datetime.date(self.birth_year, self.birth_month, self.birth_day)
+
+        # 把函数变为了类的私有属性, 相当于每次都进行类一次数据库的查询操作,效率地下
+        # print(self.profile.dating_sex)
+        # print(self.profile.location)
+        # print(self.profile.vibration)
+        # 只进行一次数据库的操作, 有一个中间的保存过程
+        # profile = self.profile
+        # print(profile.dating_sex)
+        # print(profile.location)
+        # print(profile.vibration)
+
         return (today - birth_time).days // 365
+
+    # 用户和用户信息之间建立关联(拥有相同的id)
+
+    @property
+    def profile(self):
+        # 每次先检查是否有_profile这一属性, 没有就先创建出这一属性, 将该属性保持住self.profile, 并返回避免每次都要进行数据库的查询, 懒加载的机制
+        if not hasattr(self, '_profile'):
+            self._profile, _ = Profile.objects.get_or_create(id=self.id)
+        return self._profile
 
     # def to_dict(self):
     #     return {

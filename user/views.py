@@ -56,11 +56,13 @@ def show_profile(request):
     展示个人信息
     """
     # 获取用户
-    uid = request.session['uid']
-    user = User.objects.get(uid)
+    # uid = request.session['uid']
+    # user = User.objects.get(uid)
     # 用户验证
-
-    return render_json()
+    # 封装请求中间件进行用户信息的获取和用户信息的验证
+    user = request.user
+    # 将profile私有化为user类的一个属性
+    return render_json(user.profile.to_dict())
 
 
 def modify_profile(request):
