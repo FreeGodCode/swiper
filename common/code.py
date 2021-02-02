@@ -10,3 +10,6 @@ OK = 200
 
 # 验证码错误
 VCODE_ERROR = 1000
+
+# 用户登录异常
+LOGIN_REQUIRE = 1001
