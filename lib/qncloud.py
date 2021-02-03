@@ -7,6 +7,7 @@
 from qiniu import Auth, put_file, etag
 
 from swiper import config
+from worker import call_by_worker
 
 # 构建鉴权对象, 设置为全局变量
 # q = Auth(access_key, secret_key)
@@ -32,3 +33,8 @@ def upload_to_qiniu(localfile, key):
     # assert ret['key'] == key
     # assert ret['hash'] == etag(localfile)
     return ret, info
+
+
+# 采用异步的方式上传文件
+async_upload_to_qiniu = call_by_worker(upload_to_qiniu)
+
