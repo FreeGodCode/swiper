@@ -29,16 +29,21 @@ def send_verify_code(phone_num):
     """
     #对接第三方的平台,发送验证码
     """
-    verify_code = gen_verify_code()
-    # 赋值一个HY_SMS_PARAMS,对其进行赋值操作,避免多人修改同一个
-    params = config.HY_SMS_PARAMS.copy()
-    params['mobile'] = phone_num
-    params['content'] = params['content'] % verify_code
-    response = requests.post(config.HY_SMS_URL, data=params)
-    # 缓存
-    cache.set('verify_code-%s' % phone_num, verify_code, 90)  # timeout
-    return response
-
+    key = 'verify_code-%s' % phone_num
+    # 检查验证码是否过期, 过期了就重新发送
+    if not cache.has_key(key):
+        verify_code = gen_verify_code()
+        # 复制一个HY_SMS_PARAMS,对其进行赋值操作,避免多人修改同一个
+        params = config.HY_SMS_PARAMS.copy()
+        params['mobile'] = phone_num
+        params['content'] = params['content'] % verify_code
+        response = requests.post(config.HY_SMS_URL, data=params)
+        # 缓存
+        cache.set(key, verify_code, 90)  # timeout
+        return response
+    else:
+        from common.code import VcodeExist
+        raise VcodeExist  # 验证码未过期
 
 # 装饰器
 # @celery_app.task
