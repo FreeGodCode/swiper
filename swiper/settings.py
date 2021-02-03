@@ -123,6 +123,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# 上传的媒体文件的保存路径
+MEDIA_ROOT = 'medias'
+
 # 缓存配置
 CACHES = {
     'default': {
