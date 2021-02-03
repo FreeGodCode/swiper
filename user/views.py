@@ -50,7 +50,8 @@ def login(request):
         return render_json(user.to_dict())
     else:
         # 验证失败, 返回错误的验证码
-        return render_json(None, code.VCODE_ERROR)
+        # return render_json(None, code.VcodeError.code)
+        raise code.VcodeError
 
 
 def show_profile(request):
@@ -82,7 +83,7 @@ def modify_profile(request):
         profile.save()
         return render_json(profile.to_dict())
     else:
-        return render_json(form.errors, code.PROFILE_ERROR)
+        return render_json(form.errors, code.ProfileError.code)
 
 
 def upload_avatar(request):
