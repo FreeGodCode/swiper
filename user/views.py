@@ -3,6 +3,8 @@ from lib.http import render_json
 from common import code
 from lib.sms import check_verify_code
 from user.models import User
+from user.helper import save_upload_file
+from lib.qncloud import async_upload_to_qiniu
 
 
 # Create your views here.
@@ -83,9 +85,16 @@ def modify_profile(request):
         return render_json(form.errors, code.PROFILE_ERROR)
 
 
-
 def upload_avatar(request):
     """
     上传头像
     """
-    return render_json()
+    # 获取需要上传的头像
+    avatar = request.FILES.get('avatar')  # 类型为InMemoryUploadedFile对象
+    # 上传的文件保存到本地
+    filepath, filename = save_upload_file(request.user, avatar)
+    # 再将本地文件上传到七牛云, 但是直接上传的话,效率比较低下, 采用异步上传的方式处理
+    # upload_to_qiniu(filepath, filename)
+    # 异步上传
+    async_upload_to_qiniu(filepath, filename)
+    return render_json(None)
