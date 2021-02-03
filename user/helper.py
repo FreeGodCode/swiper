@@ -7,6 +7,7 @@
 import os
 
 from django.conf import settings
+from swiper import config
 
 
 def save_upload_file(user, upload_file):
@@ -19,7 +20,27 @@ def save_upload_file(user, upload_file):
     filepath = os.path.join(settings.BASE_DIR, settings.MEDIA_ROOT, filename)
     # 文件写入
     with open(filepath, 'wb') as f:
-        for chunk in upload_file.chunks():  # chunks 实现时生成器的方式实现的 yield
+        for chunk in upload_file.chunks():  # chunks 实现是生成器的方式实现的 yield
             f.write(chunk)
 
     return filepath, filename
+
+
+def get_qiniu_url(filename):
+    """
+    将七牛域名和上传文件的文件名进行拼接, 得到上传头像的url
+    """
+    from urllib.parse import urljoin
+    return urljoin(config.QN_BASE_URL, filename)
+
+
+from worker import call_by_worker
+@call_by_worker
+def upload_avatar_to_quniu(user, filepath, filename):
+    """
+    将用户头像上传到七牛云, 并修改头像url
+    """
+    from lib.qncloud import upload_to_qiniu
+    *_, avatar_url = upload_to_qiniu(filepath, filename)
+    user.avatar = avatar_url
+    user.save()
