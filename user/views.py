@@ -96,5 +96,9 @@ def upload_avatar(request):
     # 再将本地文件上传到七牛云, 但是直接上传的话,效率比较低下, 采用异步上传的方式处理
     # upload_to_qiniu(filepath, filename)
     # 异步上传
-    async_upload_to_qiniu(filepath, filename)
+    # async_upload_to_qiniu(filepath, filename)
+    # 异步上传, 并修改头像url
+    from user.helper import upload_avatar_to_qiniu
+    upload_avatar_to_qiniu(request.user, filepath, filename)
     return render_json(None)
+
