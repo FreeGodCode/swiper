@@ -50,7 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'common.middleware.AuthMiddleware',
+    'common.middleware.AuthMiddleware',  # 用户验证中间件
+    'common.middleware.LogicErrorMiddleware',  # 逻辑错误中间件
 ]
 
 ROOT_URLCONF = 'swiper.urls'
