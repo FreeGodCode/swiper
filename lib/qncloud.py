@@ -32,7 +32,11 @@ def upload_to_qiniu(localfile, key):
     # 验证用
     # assert ret['key'] == key
     # assert ret['hash'] == etag(localfile)
-    return ret, info
+
+    # 获取文件url
+    from user.helper import get_qiniu_url
+    url = get_qiniu_url(filename)
+    return ret, info, url
 
 
 # 采用异步的方式上传文件
