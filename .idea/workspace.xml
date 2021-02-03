@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/code.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/code.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/sms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunManager">
     <configuration name="swiper" type="Python.DjangoServer" factoryName="Django server">
@@ -97,7 +96,22 @@
       <workItem from="1612256999901" duration="1790000" />
       <workItem from="1612258807658" duration="1792000" />
       <workItem from="1612260618510" duration="1794000" />
-      <workItem from="1612262427459" duration="408000" />
+      <workItem from="1612262427459" duration="1590000" />
+      <workItem from="1612274961514" duration="1745000" />
+      <workItem from="1612277451181" duration="707000" />
+      <workItem from="1612285325143" duration="1958000" />
+      <workItem from="1612287813256" duration="965000" />
+      <workItem from="1612323298794" duration="598000" />
+      <workItem from="1612325249358" duration="1784000" />
+      <workItem from="1612327068509" duration="1780000" />
+      <workItem from="1612328866882" duration="1398000" />
+      <workItem from="1612339573357" duration="1792000" />
+      <workItem from="1612341382469" duration="1796000" />
+      <workItem from="1612343227242" duration="1773000" />
+      <workItem from="1612345030628" duration="1656000" />
+      <workItem from="1612364389601" duration="1758000" />
+      <workItem from="1612366201087" duration="1790000" />
+      <workItem from="1612368008048" duration="658000" />
     </task>
     <servers />
   </component>
