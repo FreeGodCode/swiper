@@ -17,6 +17,7 @@ class AuthMiddleware(MiddlewareMixin):
     white_list = [
         '/api/user/verify_code',
         '/api/user/login',
+        '/api/user/avatar/upload',  # 本身不需要添加到白名单中, 只是为了方便调试
     ]
 
     def process_request(self, request):
