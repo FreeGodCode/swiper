@@ -15,3 +15,8 @@ HY_SMS_PARAMS = {
     'format': 'json',
 }
 
+# 七牛云配置
+QN_BUCKET = 'swiper_space'
+QN_BASE_URL = 'http://qnwvltezo.hn-bkt.clouddn.com'
+QN_ACCESS_KEY = 'rAl8TwaBg3dzgBZx2qyEV9ap9UbVy7k5vioqRBKR'
+QN_SECRET_KEY = 'Yy0AfVCsdM4hvvu3Wa1mpWtDv7-IEvEcY0BE8uyJ'
