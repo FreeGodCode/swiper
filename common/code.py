@@ -21,7 +21,7 @@ OK = 200
 # PROFILE_ERROR = 1003
 
 
-class LogicError(BaseException):  # BaseException基类异常
+class LogicError(Exception):  # BaseException基类异常
     """程序运行过程中出现一些逻辑上的异常, 返回对应的状态码"""
     code = 0
 
