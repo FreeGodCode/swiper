@@ -33,13 +33,27 @@ class AuthMiddleware(MiddlewareMixin):
         uid = request.session.get['uid']
         # 验证用户信息
         if uid is None:
-            return render_json(None, code.LOGIN_REQUIRE)
+            return render_json(None, code.LoginRequire.code)
         else:
             try:
                 user = User.objects.get(id=uid)
             # 用户不存在
             except User.DoesNotExist:
-                return render_json(None, code.USER_NOT_EXIST)
+                return render_json(None, code.UserNotExist.code)
             else:
                 # 最终将user对象附到request上
                 request.user = user
+
+
+class LogicErrorMiddleware(MiddlewareMixin):
+    """代码中逻辑错误处理中间件"""
+    def process_exception(self, request, exception):
+        """异常处理"""
+        if isinstance(exception, code.LogicError):
+            # 处理逻辑错误
+            return render_json(None, exception.code)
+        else:
+            # 处理程序错误
+            error_info = format_exception(*exc_info())
+            error_log.error(''.join(error_info))  # 将异常信息输出到错误日志
+            return render_json(error=code.InternalError)  # 程序错误统一使用 InternalError
