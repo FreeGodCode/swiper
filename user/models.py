@@ -52,6 +52,7 @@ class User(models.Model, ModelMixin):
 
     # def to_dict(self):
     #     return {
+    #         'id': self.id,
     #         'nickname': self.nickname,
     #         'phone_num': self.phone_num,
     #         'age': self.age,
