@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from lib.http import render_json
 
+from social.helper import recommend_users
+
 
 # Create your views here.
 def index(request):
@@ -9,7 +11,16 @@ def index(request):
 
 def get_recommend_users(request):
     """获取推荐列表"""
-    return render_json(None)
+    # 分页处理
+    page = int(request.GET.get('page', 1))
+    per_page = int(request.GET.get('per_page', 10))
+    start = (page - 1) * per_page
+    end = start + per_page
+
+    user = request.user
+    users = recommend_users(user)[start: end]  # 懒加载
+    result = [user.to_dict() for user in users]
+    return render_json(result)
 
 
 def like(request):
