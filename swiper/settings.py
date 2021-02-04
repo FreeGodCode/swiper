@@ -14,6 +14,8 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print(BASE_DIR)
+# /home/ty/Projects/Django/swiper
 
 
 
@@ -41,16 +43,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'user',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'common.middleware.AuthMiddleware',  # 用户验证中间件
+    'common.middleware.LogicErrorMiddleware',  # 逻辑错误中间件
 ]
 
 ROOT_URLCONF = 'swiper.urls'
@@ -150,3 +155,16 @@ STATIC_URL = '/static/'
 STATIC_FILES = (
     os.path.join(BASE_DIR, '../static')
 )
+
+# 上传的媒体文件的保存路径
+MEDIA_ROOT = 'medias'
+
+# 缓存配置
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'  # 本地缓存
+    }
+}
+
+
+
