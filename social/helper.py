@@ -41,3 +41,37 @@ def like_someone(user, sid):
         return True
     else:
         return False
+
+
+def super_like_someone(user, sid):
+    """
+
+    :param user:
+    :param sid:
+    :return:
+    """
+    Swiped.superlike(user.id, sid)
+    # 检查对方是否喜欢自己
+    if Swiped.is_liked(sid, user.id):
+        Friend.make_friend(uid1=user.id, uid2=sid)
+        return True
+    else:
+        return False
+
+
+def regreted(user):
+    # 反悔
+    # 取出最后一次滑动记录
+    swiped = Swiped.objects.filter(uid=user.id).latest()
+    # 删除好友记录
+    if swiped.flag in ['like', 'superlike']:
+        Friend.break_off(user.id, swiped.sid)
+    # 删除滑动记录
+    swiped.delete()
+
+
+def users_liked_me(user):
+    """"""
+    swipes = Swiped.liked_me(user.id)
+    swiper_uid_list = [s.uid for s in swipes]
+    return User.objects.filter(id__in=swiper_uid_list)

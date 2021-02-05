@@ -30,10 +30,17 @@ class Swiped(models.Model):
         return obj
 
     @classmethod
+    def regret(cls, uid):
+        cls.objects.filter(uid=uid).latest().delete()
+
+    @classmethod
     def is_liked(cls, uid, sid):
         # 检查是否存在
         return cls.objects.filter(uid=uid, sid=sid, flag__in=['like', 'superlike']).exists()
 
+    @classmethod
+    def liked_me(cls, uid):
+        cls.objects.filter(sid=uid, flag__in=['like', 'superlike'])
 
 class Friend(models.Model):
     """好友关系表"""
@@ -45,3 +52,15 @@ class Friend(models.Model):
     def make_friend(cls, uid1, uid2):
         uid1, uid2 = sorted([uid1, uid2])  # 排序
         cls.objects.get_or_create(uid1=uid1, uid2=uid2)
+
+    @classmethod
+    def is_friends(cls, uid1, uid2):
+        # 检查两个人是否是好友
+        # 排序
+        uid1, uid2 = sorted([uid1, uid2])
+        return cls.objects.get_or_create(uid1=uid1, uid2=uid2).exists()
+
+    @classmethod
+    def break_off(cls, uid1, uid2):
+        uid1, uid2 = sorted([uid1, uid2])
+        cls.objects.filter(uid1=uid1, uid2=uid2).delete()
