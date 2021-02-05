@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from lib.http import render_json
 
-from social.helper import recommend_users
+from social.helper import recommend_users, like_someone
 
 
 # Create your views here.
@@ -25,16 +25,23 @@ def get_recommend_users(request):
 
 def like(request):
     """喜欢"""
-    return render_json(None)
+    user = request.user
+    sid = int(request.POST.get('sid'))
+    is_matched = like_someone(user, sid)
+    return render_json({'is_matched': is_matched})
 
 
 def dislike(request):
     """不喜欢"""
+    sid = int(request.POST.get('sid'))
+
     return render_json(None)
 
 
 def super_like(request):
     """超喜欢"""
+    sid = int(request.POST.get('sid'))
+
     return render_json(None)
 
 

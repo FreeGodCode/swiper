@@ -6,6 +6,7 @@
 # @Description: 逻辑处理函数
 import datetime
 
+from social.models import Swiped, Friend
 from user.models import User
 
 
@@ -24,3 +25,19 @@ def recommend_users(user):
     max_year = current_year - min_dating_age
     users = User.objects.filter(sex=dating_sex, location=location, birth_year__gte=min_year, birth_year__lte=max_year)
     return users
+
+
+def like_someone(user, sid):
+    """
+
+    :param user:
+    :param sid:
+    :return:
+    """
+    Swiped.like(user.id, sid)
+    # 检查对方是否喜欢自己
+    if Swiped.is_liked(sid, user.id):
+        Friend.make_friend(uid1=user.id, uid2=sid)
+        return True
+    else:
+        return False
