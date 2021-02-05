@@ -42,6 +42,7 @@ class Swiped(models.Model):
     def liked_me(cls, uid):
         cls.objects.filter(sid=uid, flag__in=['like', 'superlike'])
 
+
 class Friend(models.Model):
     """好友关系表"""
     # 好友关系是相互的
