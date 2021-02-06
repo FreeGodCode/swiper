@@ -2,8 +2,10 @@ import datetime
 from django.db import models
 from lib.orm import ModelMixin
 
-
 # Create your models here.
+from social.models import Friend
+
+
 class User(models.Model, ModelMixin):
     """用户模型类"""
     SEX = (
@@ -60,6 +62,10 @@ class User(models.Model, ModelMixin):
     #         'avatar': self.avatar,
     #         'location': self.location,
     #     }
+
+    def friends(self):
+        friend_id_list = Friend.friend_id_list(self.id)
+        return User.objects.filter(id__in=friend_id_list)
 
 
 class Profile(models.Model, ModelMixin):
