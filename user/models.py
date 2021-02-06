@@ -67,6 +67,13 @@ class User(models.Model, ModelMixin):
         friend_id_list = Friend.friend_id_list(self.id)
         return User.objects.filter(id__in=friend_id_list)
 
+    class Meta:
+        db_table = 'db_user'
+        ordering = ['nickname']
+        permissions = (())
+        verbose_name = 'user'
+        verbose_name_plural = 'users'
+
 
 class Profile(models.Model, ModelMixin):
     """个人配置数据"""
@@ -83,3 +90,9 @@ class Profile(models.Model, ModelMixin):
     vibration = models.CharField(max_length=8, default=True, verbose_name='开启提示')
     only_matche = models.CharField(max_length=8, default=True, verbose_name='不让未匹配的人看我的相册')
     auto_play = models.CharField(max_length=8, default=True, verbose_name='自动播放视频')
+
+    class Meta:
+        db_table = 'db_profile'
+        ordering = ['']
+        verbose_name = 'user_info'
+        verbose_name_plural = verbose_name
