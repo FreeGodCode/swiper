@@ -21,7 +21,8 @@ def show_vip_permissions(request):
     for vip in Vip.objects.filter(level__gte=1):
         vip_info = vip.to_dict()
         permission_info = []
-        for permission in vip.permissions:
+        for permission in vip.permissions():
             permission_info.append(permission.to_dict())
         vip_info['permission_info'] = permission_info
-    return render_json(vip_info)
+        vip_permissions.append(vip_info)
+    return render_json(vip_permissions)
