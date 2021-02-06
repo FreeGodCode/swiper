@@ -20,7 +20,7 @@ class Swiped(models.Model):
         db_table = 'db_swiped'
         get_latest_by = 'date_time'
         ordering = ['-date_time']  # 按照那个字段排序
-        permissions = (())  # 权限限制
+    #     permissions = (())  # 权限限制
         verbose_name = 'swiped'
         verbose_name_plural = 'swipeds'
 
@@ -62,7 +62,7 @@ class Friend(models.Model):
     class Meta:
         db_table = 'db_friend'
         ordering = ['uid1']  # 按照那个字段排序
-        permissions = (())  # 权限限制
+        # permissions = (())  # 权限限制
         verbose_name = 'friend'
         verbose_name_plural = 'friends'
 
