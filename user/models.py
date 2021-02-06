@@ -70,7 +70,7 @@ class User(models.Model, ModelMixin):
     class Meta:
         db_table = 'db_user'
         ordering = ['nickname']
-        permissions = (())
+        # permissions = (())
         verbose_name = 'user'
         verbose_name_plural = 'users'
 
@@ -93,6 +93,6 @@ class Profile(models.Model, ModelMixin):
 
     class Meta:
         db_table = 'db_profile'
-        ordering = ['']
+        # ordering = ['']
         verbose_name = 'user_info'
         verbose_name_plural = verbose_name
