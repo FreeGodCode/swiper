@@ -2,8 +2,10 @@ import datetime
 from django.db import models
 from lib.orm import ModelMixin
 
-
 # Create your models here.
+from social.models import Friend
+
+
 class User(models.Model, ModelMixin):
     """用户模型类"""
     SEX = (
@@ -52,6 +54,7 @@ class User(models.Model, ModelMixin):
 
     # def to_dict(self):
     #     return {
+    #         'id': self.id,
     #         'nickname': self.nickname,
     #         'phone_num': self.phone_num,
     #         'age': self.age,
@@ -59,6 +62,17 @@ class User(models.Model, ModelMixin):
     #         'avatar': self.avatar,
     #         'location': self.location,
     #     }
+
+    def friends(self):
+        friend_id_list = Friend.friend_id_list(self.id)
+        return User.objects.filter(id__in=friend_id_list)
+
+    class Meta:
+        db_table = 'db_user'
+        ordering = ['nickname']
+        permissions = (())
+        verbose_name = 'user'
+        verbose_name_plural = 'users'
 
 
 class Profile(models.Model, ModelMixin):
@@ -76,3 +90,9 @@ class Profile(models.Model, ModelMixin):
     vibration = models.CharField(max_length=8, default=True, verbose_name='开启提示')
     only_matche = models.CharField(max_length=8, default=True, verbose_name='不让未匹配的人看我的相册')
     auto_play = models.CharField(max_length=8, default=True, verbose_name='自动播放视频')
+
+    class Meta:
+        db_table = 'db_profile'
+        ordering = ['']
+        verbose_name = 'user_info'
+        verbose_name_plural = verbose_name
