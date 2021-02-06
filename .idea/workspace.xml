@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +123,7 @@
       <workItem from="1612536566774" duration="5777000" />
       <workItem from="1612542379070" duration="1923000" />
       <workItem from="1612544328450" duration="1095000" />
+      <workItem from="1612597524949" duration="1954000" />
     </task>
     <servers />
   </component>
