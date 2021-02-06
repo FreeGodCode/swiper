@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +112,18 @@
       <workItem from="1612371359800" duration="1792000" />
       <workItem from="1612373189490" duration="647000" />
       <workItem from="1612420010162" duration="949000" />
+      <workItem from="1612424142163" duration="1790000" />
+      <workItem from="1612425974774" duration="6618000" />
+      <workItem from="1612432626662" duration="1788000" />
+      <workItem from="1612434434266" duration="1795000" />
+      <workItem from="1612436260487" duration="1781000" />
+      <workItem from="1612438059680" duration="602000" />
+      <workItem from="1612532787033" duration="1771000" />
+      <workItem from="1612534753423" duration="1781000" />
+      <workItem from="1612536566774" duration="5777000" />
+      <workItem from="1612542379070" duration="1923000" />
+      <workItem from="1612544328450" duration="1095000" />
+      <workItem from="1612597524949" duration="1954000" />
     </task>
     <servers />
   </component>
