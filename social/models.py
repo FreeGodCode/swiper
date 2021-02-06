@@ -16,6 +16,14 @@ class Swiped(models.Model):
     flag = models.CharField(max_length=10, choices=FLAGS)  # 滑动标志
     date_time = models.DateTimeField(auto_now=True)  # 滑动的时间
 
+    class Meta:
+        db_table = 'db_swiped'
+        get_latest_by = 'date_time'
+        ordering = ['-date_time']  # 按照那个字段排序
+        permissions = (())  # 权限限制
+        verbose_name = 'swiped'
+        verbose_name_plural = 'swipeds'
+
     @classmethod
     def like(cls, uid, sid):
         obj = cls.objects.create(uid=uid, sid=sid, flag='like')
@@ -50,6 +58,13 @@ class Friend(models.Model):
     # 好友关系是相互的
     uid1 = models.IntegerField()
     uid2 = models.IntegerField()
+
+    class Meta:
+        db_table = 'db_friend'
+        ordering = ['uid1']  # 按照那个字段排序
+        permissions = (())  # 权限限制
+        verbose_name = 'friend'
+        verbose_name_plural = 'friends'
 
     @classmethod
     def make_friend(cls, uid1, uid2):
