@@ -60,3 +60,9 @@ def show_liked_me(request):
     users = users_liked_me(request.user)
     result = [u.to_dict() for u in users]
     return render_json({'result': result})
+
+
+def get_friends(request):
+    """获取好友列表"""
+    result = [friend.to_dict() for friend in request.user.friends()]
+    return render_json(result)
