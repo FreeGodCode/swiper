@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.db.models import Q
+
 
 # Create your models here.
 class Swiped(models.Model):
@@ -63,5 +65,19 @@ class Friend(models.Model):
 
     @classmethod
     def break_off(cls, uid1, uid2):
+        """断开好友关系"""
         uid1, uid2 = sorted([uid1, uid2])
         cls.objects.filter(uid1=uid1, uid2=uid2).delete()
+
+    @classmethod
+    def friend_id_list(cls, uid):
+        """获取所有好友id列表"""
+        # 查询我的好友
+        condition = Q(uid1=uid) | Q(uid2=uid)
+        relations = cls.objects.filter(condition)
+        # 筛选好友的uid
+        id_list = []
+        for relation in relations:
+            friend_id = relation.uid2 if relation.uid1 == uid else relation.uid1
+            id_list.append(friend_id)
+        return id_list
