@@ -10,12 +10,21 @@ class Vip(models.Model, ModelMixin):
     level = models.IntegerField(unique=True)
     price = models.FloatField()
 
-    @property
+    # @property
     def permissions(self):
-        """查询关联的权限信息"""
+        """查询关联的权限信息, 当前VIP具有的所有权限"""
         relations = VipPermissionRelation.objects.filter(vip_id=self.id)
         permission_id_list = [r.permission_id for r in relations]
         return Permission.objects.filter(id__in=permission_id_list)
+
+    def has_permission(self, permission_name):
+        """检查该等级VIP是否具有某个权限"""
+        try:
+            permission = Permission.objects.get(name=permission_name)
+        except Permission.DoesNotExist:
+            return False
+        else:
+            return VipPermissionRelation.objects.filter(vip_id=self.id, permission_id=permission.id).exist()
 
     class Meta:
         db_table = 'db_vip'
@@ -26,7 +35,7 @@ class Vip(models.Model, ModelMixin):
 
 class Permission(models.Model, ModelMixin):
     """权限表"""
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=32, unique=True)
     desc = models.TextField()
 
     class Meta:
