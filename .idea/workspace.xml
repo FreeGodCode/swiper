@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swiper/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/swiper/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swiper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/swiper/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,11 +138,17 @@
       <workItem from="1612774140906" duration="1771000" />
       <workItem from="1612775930076" duration="1791000" />
       <workItem from="1612777739295" duration="1792000" />
+      <workItem from="1612779572771" duration="1708000" />
+      <workItem from="1612788107923" duration="1602000" />
+      <workItem from="1612789920956" duration="617000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
