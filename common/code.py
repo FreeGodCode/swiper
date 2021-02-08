@@ -56,3 +56,6 @@ UserNotExist = generate_logic_error('UserNotExist', 1003)
 
 # 个人信息错误
 ProfileError = generate_logic_error('ProfileError', 1004)
+
+# 没有相关权限
+NotHasPermission = generate_logic_error('NotHasPermission', 1005)
