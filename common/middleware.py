@@ -4,11 +4,14 @@
 # @IDE: PyCharm
 # @Create time: 2/2/21 11:19 AM
 # @Description: 自定义中间件
+import logging
 
 from django.utils.deprecation import MiddlewareMixin
 from common import code
 from user.models import User
 from lib.http import render_json
+
+logger = logging.getLogger('err')
 
 
 class AuthMiddleware(MiddlewareMixin):
@@ -39,6 +42,7 @@ class AuthMiddleware(MiddlewareMixin):
                 user = User.objects.get(id=uid)
             # 用户不存在
             except User.DoesNotExist:
+                logger.error('{} does not exist'.format(user))
                 return render_json(None, code.UserNotExist.code)
             else:
                 # 最终将user对象附到request上
@@ -47,13 +51,15 @@ class AuthMiddleware(MiddlewareMixin):
 
 class LogicErrorMiddleware(MiddlewareMixin):
     """代码中逻辑错误处理中间件"""
+
     def process_exception(self, request, exception):
         """异常处理"""
         if isinstance(exception, code.LogicError):
             # 处理逻辑错误
+            logger.error(f'LogicError: {exception}')
             return render_json(None, exception.code)
-        else:
-            # 处理程序错误
-            error_info = format_exception(*exc_info())
-            error_log.error(''.join(error_info))  # 将异常信息输出到错误日志
-            return render_json(error=code.InternalError)  # 程序错误统一使用 InternalError
+        # else:
+        #     # 处理程序错误
+        #     error_info = format_exception(*exc_info())
+        #     error_log.error(''.join(error_info))  # 将异常信息输出到错误日志
+        #     return render_json(error=code.InternalError)  # 程序错误统一使用 InternalError
