@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.shortcuts import render
 from lib.http import render_json
 from common import code
@@ -55,9 +56,7 @@ def login(request):
 
 
 def show_profile(request):
-    """
-    展示个人信息
-    """
+    """展示个人信息"""
     # 获取用户
     # uid = request.session['uid']
     # user = User.objects.get(uid)
@@ -65,7 +64,13 @@ def show_profile(request):
     # 封装请求中间件进行用户信息的获取和用户信息的验证
     user = request.user
     # 将profile私有化为user类的一个属性
-    return render_json(user.profile.to_dict())
+    # 增加缓存处理
+    key = f'Profile-{user.id}'
+    result = cache.get(key)  # 获取缓存
+    if result is None:
+        result = user.profile.to_dict()
+        cache.set(key, result)  # 添加缓存
+    return render_json(result)
 
 
 def modify_profile(request):
@@ -81,7 +86,12 @@ def modify_profile(request):
         profile = form.save(commit=False)
         profile.id = request.user.id
         profile.save()
-        return render_json(profile.to_dict())
+        # return render_json(profile.to_dict())
+
+        result = profile.to_dict()
+        # 添加缓存
+        cache.set(f'Profile-{profile.id}', result)
+        return render_json(result)
     else:
         return render_json(form.errors, code.ProfileError.code)
 
