@@ -203,6 +203,7 @@ LOGGING = {
         'error': {
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': '{}/logs/errors.log'.format(BASE_DIR),
+            # 'filename': f'{BASE_DIR}/logs/errors.log',
             'when': 'W0',  # 按周切割
             'backupCount': 4,
             'formatter': 'verbose',
