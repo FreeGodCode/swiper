@@ -4,6 +4,7 @@ from lib.orm import ModelMixin
 
 # Create your models here.
 from social.models import Friend
+from vip.models import Vip
 
 
 class User(models.Model, ModelMixin):
@@ -22,6 +23,8 @@ class User(models.Model, ModelMixin):
 
     avatar = models.CharField(max_length=256, verbose_name='个人形象')
     location = models.CharField(max_length=32, verbose_name='常居地')
+
+    vip_id = models.IntegerField(default=1, verbose_name='VIP ID')
 
     @property
     def age(self):
@@ -51,6 +54,12 @@ class User(models.Model, ModelMixin):
         if not hasattr(self, '_profile'):
             self._profile, _ = Profile.objects.get_or_create(id=self.id)
         return self._profile
+
+    @property
+    def vip(self):
+        if not hasattr(self, '_vip'):
+            self._vip = Vip.objects.get(id=self.vip_id)
+        return self._vip
 
     # def to_dict(self):
     #     return {
