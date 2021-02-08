@@ -168,5 +168,63 @@ CACHES = {
     }
 }
 
-
+# 日志配置
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    # 格式化器
+    'formatters': {
+        # 简易格式
+        'simple': {
+            'format': '%(asctime)s %(module)s.%(funcName)s: %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%s',
+        },
+        # 详细信息
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s [%(process)d-%(threadName)s] %(module)s.%(funcName)s line %(lineno)d: %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        }
+    },
+    # 处理器
+    'handlers': {
+        # django 默认输出
+        'console': {
+            'class': 'logging.StreamHandler',  # 流式处理
+            'level': 'DEBUG' if DEBUG else 'WARNING'
+        },
+        'info': {
+            'class': 'logging.handlers.TimedRotatingFileHandler',  # 按时间回滚文件处理方式
+            'filename': '{}/logs/info.log'.format(BASE_DIR),  # 日志保存路径
+            'when': 'D',  # 按天切割日志
+            'backupCount': 30,  # 日志备份时间
+            'formatter': 'simple',
+            'level': 'INFO',
+        },
+        'error': {
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': '{}/logs/errors.log'.format(BASE_DIR),
+            'when': 'W0',  # 按周切割
+            'backupCount': 4,
+            'formatter': 'verbose',
+            'level': 'WARNING',
+        }
+    },
+    # Logger配置
+    'loggers': {
+        # django默认
+        'django': {
+            'handlers': ['console'],
+        },
+        'inf': {
+            'handlers': ['info'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'err': {
+            'handlers': ['error'],
+            'propagate': True,
+            'level': 'WARNING',
+        }
+    }
+}
 

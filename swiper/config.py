@@ -21,3 +21,22 @@ QN_BASE_URL = 'http://qnxshht1r.hn-bkt.clouddn.com'  # 域名
 # 密钥
 QN_ACCESS_KEY = 'rAl8TwaBg3dzgBZx2qyEV9ap9UbVy7k5vioqRBKR'  # AK
 QN_SECRET_KEY = 'Yy0AfVCsdM4hvvu3Wa1mpWtDv7-IEvEcY0BE8uyJ'  # SK
+
+# 日志配置
+# 使用python默认的日志模块实现
+# import logging
+#
+# # 设置日志格式
+# fmt = '%(asctime)s %(levelname) %(funcName)s: %(message)s'
+# # 格式化器
+# formatter = logging.Formatter(fmt, datefmt='%Y-%m-%d %H:%M:%S')
+#
+# # 处理器handler
+# handler = logging.handlers.TimeRotatingFileHandler('logs.log', when='D', backupCount=30)  # 日志按照天分割, 备份数量为30份
+# # setFormatter
+# handler.setFormatter(formatter)
+#
+# # 定义logging对象
+# logging = logging.getLogger('Log')
+# logging.addHandler(handler)
+# logging.setLevel(logging.info)
