@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from lib.http import render_json
 from common import code
-from lib.sms import check_verify_code
+from lib.sms import check_verify_code, send_verify_code
 from user.models import User
 from user.helper import save_upload_file
 from lib.qncloud import async_upload_to_qiniu

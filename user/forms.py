@@ -9,7 +9,7 @@ from django import forms
 from user.models import Profile
 
 
-class PorfileForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     """个人信息表单类"""
 
     class Meta:
@@ -20,18 +20,14 @@ class PorfileForm(forms.ModelForm):
 
     # 验证数据的正确性
     def clean_min_distance(self):
-        """
-        检查最小距离
-        """
+        """检查最小距离"""
         cleaned_data = super().clean()
         if cleaned_data['min_distance'] > cleaned_data['max_distance']:
             raise forms.ValidationError('最小距离不能大于最大距离')
         return cleaned_data['min_distance']
 
     def clean_min_dating_age(self):
-        """
-        检查最大年龄距离
-        """
+        """检查最大年龄距离"""
         cleaned_data = super().clean()
         if cleaned_data['min_dating_age'] > cleaned_data['max_dating_age']:
             raise forms.ValidationError('最小年龄不能大于最大年龄')

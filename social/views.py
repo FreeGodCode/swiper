@@ -3,10 +3,11 @@ from lib.http import render_json
 
 from social.helper import recommend_users, like_someone, super_like_someone, regreted, users_liked_me
 
-# Create your views here.
 from social.models import Swiped
+from vip.helper import need_permission
 
 
+# Create your views here.
 def index(request):
     return render_json(None)
 
@@ -41,6 +42,7 @@ def dislike(request):
     return render_json(None)
 
 
+@need_permission('super_like')
 def super_like(request):
     """超喜欢"""
     user = request.user
@@ -49,12 +51,14 @@ def super_like(request):
     return render_json({'is_matched': is_matched})
 
 
+@need_permission('regret')
 def regret(request):
     """反悔"""
     regreted(request.user)
     return render_json(None)
 
 
+@need_permission('show_liked_me')
 def show_liked_me(request):
     """显示喜欢我的"""
     users = users_liked_me(request.user)
