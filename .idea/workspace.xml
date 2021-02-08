@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swiper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/swiper/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vip/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vip/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vip/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vip/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vip/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +131,10 @@
       <workItem from="1612603748849" duration="1793000" />
       <workItem from="1612624488742" duration="1774000" />
       <workItem from="1612626310104" duration="1773000" />
-      <workItem from="1612628110763" duration="1077000" />
+      <workItem from="1612628110763" duration="1787000" />
+      <workItem from="1612629925573" duration="1193000" />
+      <workItem from="1612757937804" duration="1672000" />
+      <workItem from="1612759725885" duration="1186000" />
     </task>
     <servers />
   </component>

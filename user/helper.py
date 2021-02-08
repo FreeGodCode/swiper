@@ -36,7 +36,7 @@ def get_qiniu_url(filename):
 
 from worker import call_by_worker
 @call_by_worker
-def upload_avatar_to_quniu(user, filepath, filename):
+def upload_avatar_to_qiniu(user, filepath, filename):
     """
     将用户头像上传到七牛云, 并修改头像url
     """
