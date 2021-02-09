@@ -41,6 +41,13 @@ def get_or_create(cls, *args, **kwargs):
     return model_obj, created
 
 
+# def save_to_cache(origin_save):
+#     def wrapper(*args, **kwargs):
+#         origin_save(*args, **kwargs)
+#         cache.set(key, obj)
+#     return wrapper
+
+
 def save_with_cache(model_save_func):
     """"""
 
@@ -69,7 +76,10 @@ def patch_model():
     # Model在django中是一个特殊的类, 如果通过继承的方式来增加或修改原有的方法,
     # django会将继承的类识别为一个普通的app.model, 所以只能通过monkey patch(猴子补丁)的方式动态修改
 
-    # 动态添加一个类方法
+    # models.Model.get = get
+    # models.Model.save = save
+
+    # 动态添加一个类方法 get/get_or_create
     from django.db import models
     models.Model.get = classmethod(get)
     models.Model.get_or_create = classmethod(get_or_create)
