@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/cache.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/social/helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swiper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/swiper/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="swiper" type="Python.DjangoServer" factoryName="Django server">
@@ -146,6 +148,10 @@
       <workItem from="1612796660191" duration="604000" />
       <workItem from="1612800894889" duration="22987000" />
       <workItem from="1612860332005" duration="1158000" />
+      <workItem from="1612865606385" duration="56000" />
+      <workItem from="1612928163487" duration="611000" />
+      <workItem from="1612968577747" duration="1691000" />
+      <workItem from="1612970371983" duration="1766000" />
     </task>
     <servers />
   </component>
