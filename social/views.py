@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from lib.http import render_json
 
-from social.helper import recommend_users, like_someone, super_like_someone, regreted, users_liked_me
+from social.helper import recommend_users, like_someone, super_like_someone, regreted, users_liked_me, add_swipe_score
 
 from social.models import Swiped
 from vip.helper import need_permission
@@ -31,6 +31,7 @@ def like(request):
     user = request.user
     sid = int(request.POST.get('sid'))
     is_matched = like_someone(user, sid)
+    add_swipe_score(sid, 'like')  # 添加滑动排行
     return render_json({'is_matched': is_matched})
 
 
@@ -39,6 +40,7 @@ def dislike(request):
     user = request.user
     sid = int(request.POST.get('sid'))
     Swiped.dislike(user.id, sid)
+    add_swipe_score(sid, 'dislike')  # 添加滑动排行
     return render_json(None)
 
 
@@ -48,6 +50,7 @@ def super_like(request):
     user = request.user
     sid = int(request.POST.get('sid'))
     is_matched = super_like_someone(user, sid)
+    add_swipe_score(sid, 'superlike')  # 添加滑动排行
     return render_json({'is_matched': is_matched})
 
 
