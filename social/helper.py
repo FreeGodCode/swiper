@@ -6,6 +6,7 @@
 # @Description: 逻辑处理函数
 import datetime
 
+from lib.cache import rds
 from social.models import Swiped, Friend
 from user.models import User
 
@@ -75,3 +76,14 @@ def users_liked_me(user):
     swipes = Swiped.liked_me(user.id)
     swiper_uid_list = [s.uid for s in swipes]
     return User.objects.filter(id__in=swiper_uid_list)
+
+
+def add_swipe_score(uid, flag):
+    """
+    增加滑动排行
+    :param uid:
+    :param flag:
+    :return:
+    """
+    score = {'like': 5, 'superlike': 7, 'dislike': -5}[flag]
+    rds.zincrby('HotSwiped', uid, score)
