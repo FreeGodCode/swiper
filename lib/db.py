@@ -51,9 +51,11 @@ def get_or_create(cls, *args, **kwargs):
 def save_with_cache(model_save_func):
     """"""
 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+    # def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+    def save(self, *args, **kwargs):
         """存入数据库后 ,同时写入缓存"""
-        model_save_func(force_insert, force_update, using, update_fields)
+        # model_save_func(force_insert, force_update, using, update_fields)
+        model_save_func(*args, **kwargs)
         # 添加缓存
         key = 'Model-%s-%s' % (self.__class__.__name__, self.pk)
         cache.set(key, self)

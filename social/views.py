@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from lib.http import render_json
 
-from social.helper import recommend_users, like_someone, super_like_someone, regreted, users_liked_me, add_swipe_score
+from social.helper import recommend_users, like_someone, super_like_someone, regreted, users_liked_me, add_swipe_score, \
+    get_top_n_swiped
 
 from social.models import Swiped
 from vip.helper import need_permission
@@ -73,3 +74,11 @@ def get_friends(request):
     """获取好友列表"""
     result = [friend.to_dict() for friend in request.user.friends()]
     return render_json(result)
+
+
+def hot_swiped(request):
+    """获取排行榜榜单"""
+    data = get_top_n_swiped(10)
+    for item in data:
+        item[0] = item[0].to_dict()
+    return render_json(data)
