@@ -168,6 +168,19 @@ CACHES = {
     }
 }
 
+# redis config
+REDIS = {
+    'Master': {
+        'host': '127.0.0.1',
+        'port': 6379,
+        'db': 1,
+    },
+    'Slave': {
+        'host': '127.0.0.1',
+        'port': 6379,
+        'db': 1,
+    }
+}
 # CACHE = {
 #     'default': {
 #         'BACKEND': 'django_redis.cache.RedisCache',
