@@ -17,4 +17,6 @@ urlpatterns = [
     url(r'^super_like', views.super_like, name='super_like'),
     url(r'^regret', views.regret, name='regret'),
     url(r'^show_liked_me', views.show_liked_me, name='show_liked_me'),
+    url(r'^get_friends', views.get_friends, name='get_friends'),
+    url(r'^hot_swiped', views.hot_swiped, name='hot_swiped'),
 ]
