@@ -42,7 +42,7 @@ def get_recommend_users(request):
     return render_json(result)
 
 
-def new_recommend_user(request):
+def new_recommend_users(request):
     # 从redis中获取推荐列表
     users = get_recommend_user_from_redis(request.user)
     result = [u.to_dict() for u in users]
