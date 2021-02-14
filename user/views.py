@@ -3,6 +3,7 @@ from django.shortcuts import render
 from lib.http import render_json
 from common import code
 from lib.sms import check_verify_code, send_verify_code
+from social.helper import pre_rcmd
 from user.models import User
 from user.helper import save_upload_file
 from lib.qncloud import async_upload_to_qiniu
@@ -53,6 +54,13 @@ def login(request):
         # 验证失败, 返回错误的验证码
         # return render_json(None, code.VcodeError.code)
         raise code.VcodeError
+
+
+def user_back(request):
+    user = request.user
+    # 推荐算法预处理
+    pre_rcmd(user)
+    return render_json(None)
 
 
 def show_profile(request):
