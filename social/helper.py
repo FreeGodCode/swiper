@@ -46,7 +46,7 @@ def pre_rcmd(user):
 
     # 去重, 添加到redis
     rcmd_user_id_list = rcmd_user_id_list - swiped_sid_list
-    rds.sadd('RCMD-%s' % user.id, rcmd_user_id_list)
+    rds.sadd('RCMD-%s' % user.id, *rcmd_user_id_list)
 
 
 def get_recommend_user_from_redis(user):
