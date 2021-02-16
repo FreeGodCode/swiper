@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/script/deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/restart.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/start.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/stop.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/upload.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,6 +169,8 @@
       <workItem from="1613405442369" duration="941000" />
       <workItem from="1613474818162" duration="658000" />
       <workItem from="1613483198391" duration="635000" />
+      <workItem from="1613485464264" duration="1785000" />
+      <workItem from="1613487272720" duration="1793000" />
     </task>
     <servers />
   </component>
