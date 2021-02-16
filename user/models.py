@@ -1,13 +1,14 @@
 import datetime
 from django.db import models
-from lib.orm import ModelMixin
+# from lib.orm import ModelMixin
 
-# Create your models here.
 from social.models import Friend
 from vip.models import Vip
 
 
-class User(models.Model, ModelMixin):
+# Create your models here.
+# class User(models.Model, ModelMixin):
+class User(models.Model):
     """用户模型类"""
     SEX = (
         ('0', '男性'),
@@ -84,7 +85,8 @@ class User(models.Model, ModelMixin):
         verbose_name_plural = 'users'
 
 
-class Profile(models.Model, ModelMixin):
+# class Profile(models.Model, ModelMixin):
+class Profile(models.Model):
     """个人配置数据"""
     SEX = (
         ('0', '男'),

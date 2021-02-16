@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="798aa334-5f7d-4a7e-ae49-4cb9ba31910f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
   </component>
   <component name="RunManager">
     <configuration name="swiper" type="Python.DjangoServer" factoryName="Django server">
@@ -135,11 +134,44 @@
       <workItem from="1612629925573" duration="1193000" />
       <workItem from="1612757937804" duration="1672000" />
       <workItem from="1612759725885" duration="1186000" />
+      <workItem from="1612774140906" duration="1771000" />
+      <workItem from="1612775930076" duration="1791000" />
+      <workItem from="1612777739295" duration="1792000" />
+      <workItem from="1612779572771" duration="1708000" />
+      <workItem from="1612788107923" duration="1602000" />
+      <workItem from="1612789920956" duration="617000" />
+      <workItem from="1612793017634" duration="1794000" />
+      <workItem from="1612794850147" duration="1317000" />
+      <workItem from="1612796660191" duration="604000" />
+      <workItem from="1612800894889" duration="22987000" />
+      <workItem from="1612860332005" duration="1158000" />
+      <workItem from="1612865606385" duration="56000" />
+      <workItem from="1612928163487" duration="611000" />
+      <workItem from="1612968577747" duration="1691000" />
+      <workItem from="1612970371983" duration="1766000" />
+      <workItem from="1612972172843" duration="1622000" />
+      <workItem from="1612973983498" duration="1797000" />
+      <workItem from="1612975796587" duration="1611000" />
+      <workItem from="1613061106008" duration="1142000" />
+      <workItem from="1613310519197" duration="1788000" />
+      <workItem from="1613312321457" duration="1794000" />
+      <workItem from="1613314143603" duration="1795000" />
+      <workItem from="1613315956665" duration="599000" />
+      <workItem from="1613324024476" duration="1310000" />
+      <workItem from="1613380025944" duration="1737000" />
+      <workItem from="1613382709737" duration="2457000" />
+      <workItem from="1613385185614" duration="936000" />
+      <workItem from="1613405442369" duration="941000" />
+      <workItem from="1613474818162" duration="658000" />
+      <workItem from="1613483198391" duration="635000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

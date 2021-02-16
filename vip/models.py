@@ -1,10 +1,11 @@
 from django.db import models
 
-from lib.orm import ModelMixin
+# from lib.orm import ModelMixin
 
 
 # Create your models here.
-class Vip(models.Model, ModelMixin):
+# class Vip(models.Model, ModelMixin):
+class Vip(models.Model):
     """VIP表"""
     name = models.CharField(max_length=32, unique=True)
     level = models.IntegerField(unique=True)
@@ -33,7 +34,8 @@ class Vip(models.Model, ModelMixin):
         verbose_name_plural = verbose_name
 
 
-class Permission(models.Model, ModelMixin):
+# class Permission(models.Model, ModelMixin):
+class Permission(models.Model):
     """权限表"""
     name = models.CharField(max_length=32, unique=True)
     desc = models.TextField()
@@ -45,7 +47,8 @@ class Permission(models.Model, ModelMixin):
         verbose_name_plural = verbose_name
 
 
-class VipPermissionRelation(models.Model, ModelMixin):
+# class VipPermissionRelation(models.Model, ModelMixin):
+class VipPermissionRelation(models.Model):
     """vip和权限关联表"""
     vip_id = models.IntegerField()
     permission_id = models.IntegerField()

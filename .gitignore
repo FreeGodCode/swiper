@@ -133,3 +133,5 @@ medias/
 # qiniucloud upload log
 .qiniu_pythonsdk_hostscache.json
 
+# idea
+.idea/workspace.xml

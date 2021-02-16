@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'common.middleware.AuthMiddleware',  # 用户验证中间件
+    # 'common.middleware.AuthMiddleware',  # 用户验证中间件
     'common.middleware.LogicErrorMiddleware',  # 逻辑错误中间件
 ]
 
@@ -161,12 +161,105 @@ STATIC_FILES = (
 # 上传的媒体文件的保存路径
 MEDIA_ROOT = 'medias'
 
-# 缓存配置
+# Cache 缓存配置
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'  # 本地缓存
     }
 }
 
+# redis config
+REDIS = {
+    'Master': {
+        'host': '127.0.0.1',
+        'port': 6379,
+        'db': 1,
+    },
+    'Slave': {
+        'host': '127.0.0.1',
+        'port': 6379,
+        'db': 1,
+    }
+}
+# CACHE = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#         'LOCATION': [
+#             'redis://127.0.0.1: 6379/1',
+#             'redis://127.0.0.1: 6379/2',
+#         ],
+#         'OPTIONS': {
+#             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+#             'PASSWORD': '123456',
+#             # 连接池设置
+#             'CONNECTION_POOL_KWARGS': {
+#                 'max_connections': 100,
+#                 'retry_on_timeout': True,
+#             },
+#             'SERIALIZER': 'django_redis.serializer.json.JSONSerializer',  # json 序列化
+#             'COMPRESSOR': 'django_redis.compressors.zlib.ZlibCompressors',  # zlib 压缩
+#         }
+#     }
+# }
 
+# 日志配置
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    # 格式化器
+    'formatters': {
+        # 简易格式
+        'simple': {
+            'format': '%(asctime)s %(module)s.%(funcName)s: %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%s',
+        },
+        # 详细信息
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s [%(process)d-%(threadName)s] %(module)s.%(funcName)s line %(lineno)d: %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        }
+    },
+    # 处理器
+    'handlers': {
+        # django 默认输出
+        'console': {
+            'class': 'logging.StreamHandler',  # 流式处理
+            'level': 'DEBUG' if DEBUG else 'WARNING'
+        },
+        'info': {
+            'class': 'logging.handlers.TimedRotatingFileHandler',  # 按时间回滚文件处理方式
+            'filename': '{}/logs/info.log'.format(BASE_DIR),  # 日志保存路径
+            'when': 'D',  # 按天切割日志
+            'backupCount': 30,  # 日志备份时间
+            'formatter': 'simple',
+            'level': 'INFO',
+        },
+        'error': {
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': '{}/logs/errors.log'.format(BASE_DIR),
+            # 'filename': f'{BASE_DIR}/logs/errors.log',
+            'when': 'W0',  # 按周切割
+            'backupCount': 4,
+            'formatter': 'verbose',
+            'level': 'WARNING',
+        }
+    },
+    # Logger配置
+    'loggers': {
+        # django默认
+        'django': {
+            'handlers': ['console'],
+        },
+        'inf': {
+            'handlers': ['info'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'err': {
+            'handlers': ['error'],
+            'propagate': True,
+            'level': 'WARNING',
+        }
+    }
+}
 
